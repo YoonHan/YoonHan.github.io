@@ -1,18 +1,17 @@
-// base import
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react'
+import { graphql } from 'gatsby'
 
 // components
 import PostLists from '../components/PostLists'
 
 // styles
 const pageStyles = {
-  color: "#232129",
+  color: '#232129',
   paddingTop: 24,
   paddingBottom: 24,
   margin: '0 auto',
   maxWidth: 760,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: '-apple-system, Roboto, sans-serif, serif',
 }
 
 const headingStyles = {
@@ -20,61 +19,12 @@ const headingStyles = {
 }
 
 const headingAccentStyles = {
-  color: "#663399",
+  color: '#663399',
 }
 
 const paragraphStyles = {
   marginBottom: 48,
-  fontSize: "1.25rem",
-}
-
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
+  fontSize: '1.25rem',
 }
 
 // data
@@ -90,7 +40,7 @@ const IndexPage = ({ data }) => {
       <h1 style={headingStyles}>
         <br />
         <span style={headingAccentStyles}>— 프론트엔드 개발 공부 공간 </span>
-        <span role="img" aria-label="books emojis">
+        <span role='img' aria-label='books emojis'>
           📙
         </span>
       </h1>
@@ -99,7 +49,7 @@ const IndexPage = ({ data }) => {
       </p>
       {/* 포스트 영역 */}
       <h1 style={headingStyles}>Posts</h1>
-      <PostLists></PostLists>
+      <PostLists allMdxData={data.allMdx}></PostLists>
     </main>
   )
 }
@@ -109,6 +59,17 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allMdx(sort: {order: DESC, fields: frontmatter___publishedDate}) {
+      nodes {
+        frontmatter {
+          author
+          publishedDate(formatString: "MMMM D, YYYY")
+          title
+        }
+        id
+        body
       }
     }
   }

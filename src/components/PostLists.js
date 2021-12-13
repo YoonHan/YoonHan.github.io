@@ -1,23 +1,18 @@
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import Post from './Post';
 
 
-const PostLists = () => {
+const listWrapperStyles = {
+  borderTop: '1px solid lightgrey',
+  paddingTop: '20px',
+}
 
-  const data = useStaticQuery(graphql`
-    query {
-      allFile {
-        nodes {
-          name
-        }
-      }
-    }
-  `)
+const PostLists = ({ allMdxData }) => {
 
   return (
-    <div>
-      { data.allFile.nodes.map((postObj) => <div>{postObj.name}</div>) }
-    </div>
+    <section style={listWrapperStyles}>
+      { allMdxData.nodes.map((mdxData) => <Post mdxData={mdxData}></Post>)}
+    </section>
   )
 };
 
