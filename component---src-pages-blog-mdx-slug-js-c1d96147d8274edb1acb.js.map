@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-blog-mdx-slug-js-c1d96147d8274edb1acb.js","mappings":"oIASA,UANiB,WACf,OACE","sources":["webpack://yoon-s-blog/./src/pages/blog/{mdx.slug}.js"],"sourcesContent":["import * as React from 'react'\n\n\nconst BlogPost = () => {\n  return (\n    <div>Hi</div>\n  )\n}\n\nexport default BlogPost"],"names":[],"sourceRoot":""}
