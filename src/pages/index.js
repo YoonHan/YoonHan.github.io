@@ -4,9 +4,14 @@ import { graphql } from 'gatsby'
 // components
 import PostLists from '../components/PostLists'
 
+// utils
+import { hightlightColor, mainColor } from '../common'
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
+
 // styles
 const pageStyles = {
-  color: '#232129',
+  fontColor: mainColor,
   paddingTop: 24,
   paddingBottom: 24,
   margin: '0 auto',
@@ -19,7 +24,7 @@ const headingStyles = {
 }
 
 const headingAccentStyles = {
-  color: '#663399',
+  color: hightlightColor,
 }
 
 const paragraphStyles = {
@@ -70,6 +75,7 @@ export const query = graphql`
         }
         id
         body
+        slug
       }
     }
   }

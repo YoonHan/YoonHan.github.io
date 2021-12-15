@@ -11,7 +11,11 @@ const PostLists = ({ allMdxData }) => {
 
   return (
     <section style={listWrapperStyles}>
-      { allMdxData.nodes.map((mdxData) => <Post mdxData={mdxData}></Post>)}
+      {
+        allMdxData.nodes.map(
+          (mdxData) => <Post mdxData={mdxData} key={mdxData.id}></Post>
+        )
+      }
     </section>
   )
 };

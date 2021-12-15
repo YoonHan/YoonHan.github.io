@@ -1,7 +1,87 @@
 ---
 title: Async-await under the hood
-publishedDate: 2021-12-13
+publishedDate: 2021-12-14
 author: Yoon
 ---
 
-Hi! This is my first post on my blog.
+비동기 코드를 좀더 간결한 문법으로 처리할 수 있게 해주는 syntactic sugar 인 async-await 에 관해 한층 깊게 알아보자.
+
+## Async-Await ?
+
+Async-Await 는 비동기 코드를 마치 동기 코드처럼 짤 수 있게 도와주는 문법이다.
+함수 선언시에 `async` 키워드를 붙여주고, 언제끝날지 모르는 코드라인에 `await` 키워드를 붙여주면 된다. 아주 간단한다.
+
+```javascript
+async function fetchUserData() {
+  const data = await APICall()
+  // 불러온 데이터를 가지고 요리조리 가공..
+  return data
+}
+```
+
+위의 코드를 보면 `fetchUserData`라는 함수가 API 호출을 통해 필요한 데이터를 가져오고 있다.
+만약 불러온 데이터를 통해 어떠한 작업을 해야하는 경우라면 해당 데이터가 모두 불러와지기 전까지는 다음 코드라인으로 넘어가면 안된다.
+
+이 때 사용하는 것이 바로 `await` 키워드인 것이다.
+이 키워드를 붙여주면 단어 뜻 그대로 해당 코드의 실행(Promise 의 fulfill 또는 reject)이 완료되길 기다린다.
+
+- - -
+
+## 어떤 방식으로 동작하는 것일까 ?
+결론부터 말하면 `Async-Await` 는 `Promise` 와 `Generator` 의 조합이다. 바로 예시 코드를 살펴보자.
+
+```javascript
+/**
+ * Secrets of the javascript ninja 2nd edition 에서 발췌
+ */
+async(function*() {
+  try {
+    const userInfo = yield fetchUserInfo()  // fetchUserInfo 함수가 Promise 를 반환한다고 가정한다.
+    const transactionInfo = yield fetchTransactionInfo(userInfo) // 이 함수 또한 마찬가지로 Promise 를 반환한다고 가정한다.
+    // 나머지 작업
+  } catch(e) {
+    // Error 핸들링 코드
+  }
+})
+
+function async(generator) {
+  const iterator = generator()  // generator 를 컨트롤하는 iterator object
+
+  function handle(iteratorResult) {
+    // generator 실행이 완료 되었으면 early return 한다.
+    if (iteratorResult.done) { return }
+
+    // generator 실행이 완료되지 않았다면,
+    // yield 된 값이 Promise 인지 판단한 후 Promise 라면
+    // then, catch 를 통해 콜백 함수를 등록한다.
+    // 이렇게 되면 현재 Promise 가 fulfill 되거나 reject 되기 전까지 iterator 의 다음 yield 문까지 함수 실행이 중단된다.
+    const iteratorValue = iteratorResult.value
+    if (iteratorValue instanceof Promise) {
+      iteratorValue
+        .then(res => handle(iterator.next(res)))
+        .catch(err => iterator.throw(err))
+    }
+  }
+
+  try {
+    handle(iterator.next())
+  } catch(e) {
+    iterator.throw(e)
+  }
+}
+```
+
+Promise 의 특징은 비동기 작업의 실행이 다 끝난 뒤에 원하는 작업을 수행할 수 있도록 해준다는 것이고,
+Generator 의 특징은 함수의 실행을 특정 포인트에서 멈추었다가 나중에 다시 그 지점에서부터 실행을 재개할 수 있다는 것이다.
+
+따라서 이 두 가지 개념을 조합하면, 내가 실행한 함수 내 특정 라인의 실행이 끝날때까지 기다리도록 하는 동작을 구현할 수 있게 된다.
+
+위 코드의 실행 순서를 살펴보면,
+
+1. async 함수는 generator를 인자로 받은 뒤에 해당 generator 함수에 대한 iterator object 를 생성한다.
+2. handle 함수는 generator에 next()를 호출해 얻은 값을 인자로 받는데
+해당 값이 Promise 인 경우에는 .then() callback 안에서 next()를 호출하도록 하여 Promise 상태가 fulfill 이나 reject이 되기 전에는 generator 코드가 더 이상 진행되지 않도록 해준다.
+3. handle 함수로 넘겨진 generator 의 done field 가 true 가 되면 더 이상 generator로부터 받아올 값이 없다는 의미이므로
+async 함수의 실행이 종료된다.
+
+

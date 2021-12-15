@@ -11,12 +11,20 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        extensions: [".mdx", ".md"],
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 590,
             },
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: "carbon",
+              theme: "vscode",
+            }
           },
         ],
       },
