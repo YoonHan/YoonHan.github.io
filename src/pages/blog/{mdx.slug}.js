@@ -6,8 +6,8 @@ import { hightlightColor } from '../../common'
 
 
 const blogPostStyles = {
-  paddingTop: '48px',
-  paddingBottom: '48px',
+  paddingTop: '96px',
+  paddingBottom: '96px',
   maxWidth: 760,
   margin: '0px auto',
 }
