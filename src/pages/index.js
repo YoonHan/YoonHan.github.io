@@ -1,11 +1,14 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
+// css
+import index from '../css/index.css'
+
 // components
 import PostLists from '../components/PostLists'
 
 // utils
-import { hightlightColor, mainColor } from '../common'
+import { purpleMain, mainColor } from '../common'
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
 deckDeckGoHighlightElement()
 
@@ -15,16 +18,15 @@ const pageStyles = {
   paddingTop: 24,
   paddingBottom: 24,
   margin: '0 auto',
-  maxWidth: 760,
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
+  maxWidth: 860,
 }
 
 const headingStyles = {
-  maxWidth: 400,
+  maxWidth: 760,
 }
 
 const headingAccentStyles = {
-  color: hightlightColor,
+  color: purpleMain,
 }
 
 const paragraphStyles = {
@@ -44,7 +46,7 @@ const IndexPage = ({ data }) => {
       {/* 페이지 소개 */}
       <h1 style={headingStyles}>
         <br />
-        <span style={headingAccentStyles}>— 프론트엔드 개발 공부 공간 </span>
+        <span style={headingAccentStyles}>프론트엔드 개발 공부 공간 </span>
         <span role='img' aria-label='books emojis'>
           📙
         </span>

@@ -2,20 +2,25 @@ import * as React from 'react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql, Link } from 'gatsby'
 
-import { hightlightColor } from '../../common'
+import { purpleMain } from '../../common'
 
 
 const blogPostStyles = {
   paddingTop: '72px',
   paddingBottom: '96px',
-  maxWidth: 760,
+  maxWidth: 860,
   margin: '0px auto',
 }
 
 const backButtonStyles = ({ hover }) => ({
-  color: hover ? hightlightColor : '#000000',
+  border: '1px solid grey',
+  borderRadius: '6px',
+  padding: '8px 16px',
+  backgroundColor: hover ? purpleMain : '#ffffff',
+  color: hover ? '#ffffff' : '#000000',
   fontWeight: 'bold',
   textDecoration: 'none',
+  transition: 'background-color .2s, color .2s',
 })
 
 const titleStyles = {

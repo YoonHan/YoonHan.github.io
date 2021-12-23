@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import { hightlightColor } from '../common'
+import { purpleMain, purpleSub } from '../common'
 
 
 const linkStyles = {
@@ -9,14 +9,15 @@ const linkStyles = {
 }
 
 const articleStyles = ({hover}) => ({
-  backgroundColor: hover ? '#FFF2FB': '',
-  padding: '8px',
-  borderRadius: '4px',
+  backgroundColor: hover ? purpleSub : '',
+  padding: '8px 16px',
+  borderRadius: '6px',
   cursor: 'pointer',
+  transition: 'background-color .2s'
 })
 
 const h2AccentStyles = {
-  color: hightlightColor,
+  color: purpleMain,
   margin: '0px 0px 10px 0px',
 }
 
