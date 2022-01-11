@@ -18,7 +18,9 @@ const pageStyles = {
   paddingTop: 24,
   paddingBottom: 24,
   margin: '0 auto',
-  maxWidth: 860,
+  maxWidth: '68em',
+  padding: '0 1.618em',
+  height: '100%',
 }
 
 const headingStyles = {

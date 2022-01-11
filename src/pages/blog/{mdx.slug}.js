@@ -10,9 +10,9 @@ import './blogPost.module.css';
 
 
 const blogPostStyles = {
-  paddingTop: '72px',
+  paddingTop: '48px',
   paddingBottom: '96px',
-  maxWidth: 860,
+  maxWidth: '68em',
   margin: '0px auto',
 }
 
