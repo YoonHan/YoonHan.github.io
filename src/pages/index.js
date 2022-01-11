@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 // css
-import index from '../css/index.css'
+import '../css/index.css'
 
 // components
 import PostLists from '../components/PostLists'
