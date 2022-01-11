@@ -30,8 +30,6 @@ const publishedDateStyles = {
 const Post = ({ mdxData }) => {
   const [hover, setHover] = React.useState(false)
 
-  console.log(h2AccentStyles)
-
   return (
     <Link to={`/blog/${mdxData.slug}`} style={linkStyles}>
       <article style={articleStyles({hover})}

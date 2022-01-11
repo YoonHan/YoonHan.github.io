@@ -16,12 +16,12 @@ const blogPostStyles = {
   margin: '0px auto',
 }
 
-const backButtonStyles = ({ hover }) => ({
-  border: '1px solid grey',
+const backButtonStyles = ({ backButtonHover }) => ({
+  border: '1px solid lightgrey',
   borderRadius: '6px',
   padding: '8px 16px',
-  backgroundColor: hover ? '#ffffff' : purpleMain,
-  color: hover ? '#000000' : '#ffffff',
+  backgroundColor: backButtonHover ? '#ffffff' : purpleMain,
+  color: backButtonHover ? '#000000' : '#ffffff',
   fontWeight: 'bold',
   textDecoration: 'none',
   transition: 'background-color .2s, color .2s',
@@ -43,14 +43,14 @@ const MarkdownWrapperStyle = {
 
 
 const BlogPost = ({ data }) => {
-  const [hover, setHover] = React.useState(false)
+  const [backButtonHover, setBackButtonHoverHover] = React.useState(false)
 
   return (
     <div style={blogPostStyles}>
       <Link to="/"
-        style={backButtonStyles({hover})}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
+        style={backButtonStyles({backButtonHover})}
+        onPointerOver={() => setBackButtonHoverHover(true)}
+        onPointerOut={() => setBackButtonHoverHover(false)}
       >
         &lt; 뒤로가기
       </Link>
