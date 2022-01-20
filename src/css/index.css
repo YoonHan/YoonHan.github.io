@@ -1,4 +1,4 @@
-@import "./typography.css";
+@import "../static/fonts/typography.css";
 
 * {
   font-family: 'Spoqa Han Sans', 'sans-serif';

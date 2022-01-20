@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 700;
+  src: local("Spoqa Han Sans Bold"), 
+    url("./SpoqaHanSansNeo-Bold.woff"),
+    url("./SpoqaHanSansNeo-Bold.woff2"),
+    url("./SpoqaHanSansNeo-Bold.eot");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 500;
+  src: local("Spoqa Han Sans Medium"),
+    url("./SpoqaHanSansNeo-Medium.woff"),
+    url("./SpoqaHanSansNeo-Medium.woff2"),
+    url("./SpoqaHanSansNeo-Medium.eot");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 400;
+  src: local("Spoqa Han Sans Regular"),
+    url("./SpoqaHanSansNeo-Regular.woff"),
+    url("./SpoqaHanSansNeo-Regular.woff2"),
+    url("./SpoqaHanSansNeo-Regular.eot");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 300;
+  src: local("Spoqa Han Sans Light"),
+    url("./SpoqaHanSansNeo-Light.woff"),
+    url("./SpoqaHanSansNeo-Light.woff2"),
+    url("./SpoqaHanSansNeo-Light.eot");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-weight: 100;
+  src: local("Spoqa Han Sans Thin"),
+    url("./SpoqaHanSansNeo-Thin.woff"),
+    url("./SpoqaHanSansNeo-Thin.woff2"),
+    url("./SpoqaHanSansNeo-Thin.eot");
+}
