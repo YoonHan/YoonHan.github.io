@@ -48,4 +48,36 @@
         }
       }
     })
-  </script><link as="script" rel="preload" href="/webpack-runtime-8cf461ba70d69364b549.js"/><link as="script" rel="preload" href="/framework-5de6c74c93a1b0f393aa.js"/><link as="script" rel="preload" href="/app-792b8b6eb9cfac8cc83a.js"/><link as="script" rel="preload" href="/component---src-pages-index-js-e30a141dc4d95a4347e9.js"/><link as="fetch" rel="preload" href="/page-data/index/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><main style="font-color:rgb(0, 0, 0);padding-top:24px;padding-bottom:24px;margin:0 auto;max-width:68em;padding:0 1.618em;height:100%"><title>Yoon&#x27;s blog<!-- --> | Home</title><h1 style="max-width:760px"><br/><span style="color:rgb(102, 51, 153)">프론트엔드 개발 공부 공간 </span><span role="img" aria-label="books emojis">📙</span></h1><p style="margin-bottom:48px;font-size:1.25rem">그때 그때 공부한 지식들을 블로그 포스트로 정리한 공간입니다 🙂</p><h1 style="max-width:760px">Posts</h1><section style="border-top:1px solid lightgrey;padding-top:20px"><a style="text-decoration:none" href="/blog/typescript-partial"><article style="background-color:;padding:8px 16px;border-radius:6px;cursor:pointer;transition:background-color .2s;margin-bottom:1em"><h2 style="color:rgb(102, 51, 153);margin:0px 0px 10px 0px">Typescript Partial&lt;T&gt;</h2><p style="color:grey;margin-top:0px;margin-bottom:0px">January 20, 2022</p></article></a><a style="text-decoration:none" href="/blog/async-await-under-the-hood"><article style="background-color:;padding:8px 16px;border-radius:6px;cursor:pointer;transition:background-color .2s;margin-bottom:1em"><h2 style="color:rgb(102, 51, 153);margin:0px 0px 10px 0px">Async-await under the hood</h2><p style="color:grey;margin-top:0px;margin-bottom:0px">December 14, 2021</p></article></a></section></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-37972374b77f085635d4.js"],"app":["/app-792b8b6eb9cfac8cc83a.js"],"component---src-pages-404-js":["/component---src-pages-404-js-66d1bae4eb48a99fadcc.js"],"component---src-pages-blog-mdx-slug-js":["/component---src-pages-blog-mdx-slug-js-293cda194771f9947175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e30a141dc4d95a4347e9.js"]};/*]]>*/</script><script src="/polyfill-37972374b77f085635d4.js" nomodule=""></script><script src="/component---src-pages-index-js-e30a141dc4d95a4347e9.js" async=""></script><script src="/app-792b8b6eb9cfac8cc83a.js" async=""></script><script src="/framework-5de6c74c93a1b0f393aa.js" async=""></script><script src="/webpack-runtime-8cf461ba70d69364b549.js" async=""></script></body></html>
+  </script><link as="script" rel="preload" href="/webpack-runtime-8cf461ba70d69364b549.js"/><link as="script" rel="preload" href="/framework-5de6c74c93a1b0f393aa.js"/><link as="script" rel="preload" href="/app-792b8b6eb9cfac8cc83a.js"/><link as="script" rel="preload" href="/component---src-pages-blog-mdx-slug-js-293cda194771f9947175.js"/><link as="fetch" rel="preload" href="/page-data/blog/typescript-partial/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="padding-top:48px;padding-bottom:96px;max-width:68em;margin:0px auto"><a style="border:1px solid lightgrey;border-radius:6px;padding:8px 16px;background-color:rgb(102, 51, 153);color:#ffffff;font-weight:bold;text-decoration:none;transition:background-color .2s, color .2s" href="/">&lt; 뒤로가기</a><h1 style="margin-bottom:0px">Typescript Partial&lt;T&gt;</h1><p style="color:grey;margin-top:8px;margin-bottom:30px">January 20, 2022</p><div style="font-size:1.1rem"><blockquote><p>Typescript 의 <code>Partial&lt;T&gt;</code> 에 대해 알아본다.</p></blockquote><p>Vuetify 객체 생성에 넘겨줄 option object를 구성하면서 아래와 같은 코드를 보았다.</p><deckgo-highlight-code language="typescript" terminal="carbon" theme="night-owl" line-numbers="true" highlight-lines="1">
+          <code slot="code">const options: Partial&lt;UserVuetifyPreset&gt; = {
+  icons: {
+    iconfont: &#x27;mdiSvg&#x27;,
+  },
+  ...
+}
+
+export default new Vuetify({
+  ...options,
+})</code>
+        </deckgo-highlight-code><p>&#x27;Partial 이 뭐지?&#x27; 하고 찾아보니 interface의 모든 속성을 optional 하게 만들어주는 것이라고 한다.  </p><br/><deckgo-highlight-code language="typescript" terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">// Example:
+interface PersonInfo {
+  name: string;
+  phone: string;
+  age: number;
+  address: string
+}
+
+type PersonInfoPartial = Partial&lt;PersonInfo&gt;
+
+// 가능
+const me: PersonInfoPartial = {
+  name: &#x27;Yoon&#x27;,
+  phone: &#x27;010-1234-5678&#x27;,
+}
+
+// 가능
+const you: PersonInfoPartial = {
+  age: 29,
+}</code>
+        </deckgo-highlight-code><p>위처럼 Partial 을 사용하면 기존 interface의 부분집합 격인 또다른 interface를 만드는게 가능하다.</p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/typescript-partial/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-37972374b77f085635d4.js"],"app":["/app-792b8b6eb9cfac8cc83a.js"],"component---src-pages-404-js":["/component---src-pages-404-js-66d1bae4eb48a99fadcc.js"],"component---src-pages-blog-mdx-slug-js":["/component---src-pages-blog-mdx-slug-js-293cda194771f9947175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e30a141dc4d95a4347e9.js"]};/*]]>*/</script><script src="/polyfill-37972374b77f085635d4.js" nomodule=""></script><script src="/component---src-pages-blog-mdx-slug-js-293cda194771f9947175.js" async=""></script><script src="/app-792b8b6eb9cfac8cc83a.js" async=""></script><script src="/framework-5de6c74c93a1b0f393aa.js" async=""></script><script src="/webpack-runtime-8cf461ba70d69364b549.js" async=""></script></body></html>
