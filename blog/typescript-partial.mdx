@@ -1,0 +1,51 @@
+---
+title: Typescript Partial<T>
+publishedDate: 2022-01-20
+author: Yoon
+tag: TIL, Typescript
+---
+
+> Typescript 의 `Partial<T>` 에 대해 알아본다.
+
+Vuetify 객체 생성에 넘겨줄 option object를 구성하면서 아래와 같은 코드를 보았다.
+
+```typescript{1}
+const options: Partial<UserVuetifyPreset> = {
+  icons: {
+    iconfont: 'mdiSvg',
+  },
+  ...
+}
+
+export default new Vuetify({
+  ...options,
+})
+```
+
+'Partial 이 뭐지?' 하고 찾아보니 interface의 모든 속성을 optional 하게 만들어주는 것이라고 한다.  
+<br />
+
+```typescript
+// Example:
+interface PersonInfo {
+  name: string;
+  phone: string;
+  age: number;
+  address: string
+}
+
+type PersonInfoPartial = Partial<PersonInfo>
+
+// 가능
+const me: PersonInfoPartial = {
+  name: 'Yoon',
+  phone: '010-1234-5678',
+}
+
+// 가능
+const you: PersonInfoPartial = {
+  age: 29,
+}
+```
+
+위처럼 Partial 을 사용하면 기존 interface의 부분집합 격인 또다른 interface를 만드는게 가능하다.

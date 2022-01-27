@@ -23,7 +23,8 @@ module.exports = {
             resolve: `gatsby-remark-highlight-code`,
             options: {
               terminal: "carbon",
-              theme: "vscode",
+              theme: "night-owl",
+              lineNumbers: true,
             }
           },
         ],
@@ -81,7 +82,7 @@ module.exports = {
               // existing language" below.
               languageExtensions: [
                 {
-                  language: "superscript",
+                  language: "typescript",
                   extend: "javascript",
                   definition: {
                     superscript_types: /(SuperType)/,

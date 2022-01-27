@@ -13,7 +13,8 @@ const articleStyles = ({hover}) => ({
   padding: '8px 16px',
   borderRadius: '6px',
   cursor: 'pointer',
-  transition: 'background-color .2s'
+  transition: 'background-color .2s',
+  marginBottom: '1em',
 })
 
 const h2AccentStyles = {

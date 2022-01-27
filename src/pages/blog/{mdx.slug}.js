@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import { purpleMain } from '../../common'
 
 // styles
-import './blogPost.module.css';
+import './blogPost.module.css'
 
 
 const blogPostStyles = {
@@ -33,7 +33,7 @@ const titleStyles = {
 
 const publishedDateStyles = {
   color: 'grey',
-  marginTop: '0px',
+  marginTop: '8px',
   marginBottom: '30px',
 }
 

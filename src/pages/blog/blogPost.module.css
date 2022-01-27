@@ -17,7 +17,3 @@ blockquote {
   padding-inline-start: 40px;
   padding-inline-end: 40px;
 }
-
-.deckgo-highlight-code-carbon > .container {
-  background-color: red;
-}
