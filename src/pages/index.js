@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => {
         <br />
         <span style={headingAccentStyles}>프론트엔드 개발 공부 공간 </span>
         <span role='img' aria-label='books emojis'>
-          📙
+          📚
         </span>
       </h1>
       <p style={paragraphStyles}>
