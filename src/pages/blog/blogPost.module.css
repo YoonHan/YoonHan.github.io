@@ -17,3 +17,15 @@ blockquote {
   padding-inline-start: 40px;
   padding-inline-end: 40px;
 }
+
+a {
+  text-decoration: none;
+}
+
+code {
+  background-color: #e7f5ff;
+  color: #339af0;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 2px 4px;
+}

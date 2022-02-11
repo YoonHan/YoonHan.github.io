@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql, Link } from 'gatsby'
 
 // colours
-import { purpleMain } from '../../common'
+import { blueMain } from '../../common'
 
 // styles
 import './blogPost.module.css'
@@ -20,7 +20,7 @@ const backButtonStyles = ({ backButtonHover }) => ({
   border: '1px solid lightgrey',
   borderRadius: '6px',
   padding: '8px 16px',
-  backgroundColor: backButtonHover ? '#ffffff' : purpleMain,
+  backgroundColor: backButtonHover ? '#ffffff' : blueMain,
   color: backButtonHover ? '#000000' : '#ffffff',
   fontWeight: 'bold',
   textDecoration: 'none',

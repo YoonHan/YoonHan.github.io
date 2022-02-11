@@ -8,13 +8,13 @@ import '../css/index.css'
 import PostLists from '../components/PostLists'
 
 // utils
-import { purpleMain, mainColor } from '../common'
+import { blueMain, fontMainColor } from '../common'
 import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
 deckDeckGoHighlightElement()
 
 // styles
 const pageStyles = {
-  fontColor: mainColor,
+  fontColor: fontMainColor,
   paddingTop: 24,
   paddingBottom: 24,
   margin: '0 auto',
@@ -28,7 +28,7 @@ const headingStyles = {
 }
 
 const headingAccentStyles = {
-  color: purpleMain,
+  color: blueMain,
 }
 
 const paragraphStyles = {

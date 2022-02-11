@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import { purpleMain, purpleSub } from '../common'
+import { blueMain, blueSub } from '../common'
 
 
 const linkStyles = {
@@ -9,7 +9,7 @@ const linkStyles = {
 }
 
 const articleStyles = ({hover}) => ({
-  backgroundColor: hover ? purpleSub : '',
+  backgroundColor: hover ? blueSub : '',
   padding: '8px 16px',
   borderRadius: '6px',
   cursor: 'pointer',
@@ -18,7 +18,7 @@ const articleStyles = ({hover}) => ({
 })
 
 const h2AccentStyles = {
-  color: purpleMain,
+  color: blueMain,
   margin: '0px 0px 10px 0px',
 }
 
