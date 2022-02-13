@@ -55,7 +55,7 @@ module.exports = {
 ...
 ```
 요청 헤더에 위와 같은 `x-forwaded-*` 값들이 들어가 있는것을 볼 수 있었다. 이 헤더 값들 때문에 Keycloak에서 JWT의 iss 필드를 localhost 로 세팅해서 내려주고 있던 것이다.
-이제 이 header 들을 제거하면 Keycloak 아 정상적인 JWT를 내려줄 것이다.
+이제 이 header 들을 제거하면 Keycloak 이 정상적인 JWT를 내려줄 것이다.
 <br />
 
 ```javascript{7-12}
