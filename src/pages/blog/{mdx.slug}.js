@@ -34,9 +34,9 @@ const moveToTopButtonStyles = ({ moveToTopButtonHover }) => ({
   width: '50px',
   height: '50px',
   cursor: 'pointer',
-  marginLeft: getTopButtonLeftOffset(),
+  marginLeft: '920px',
   transition: 'background-color .2s, color .2s',
-  border: moveToTopButtonHover ? '1px solid lightgrey' : '',
+  border: moveToTopButtonHover ? '1px solid lightgrey' : 'none',
   borderRadius: '15px',
   boxShadow: '1px 1px 2px 1px lightgrey',
   color: moveToTopButtonHover ? '#000000' : '#000000',
@@ -61,10 +61,6 @@ const MarkdownWrapperStyle = {
 const topButtonHandler = () => {
   document.body.scrollTop = 0
   document.documentElement.scrollTop = 0
-}
-
-const getTopButtonLeftOffset = () => {
-  return `${document.querySelector('.blog-post').clientWidth - 160}px`
 }
 
 // Component
