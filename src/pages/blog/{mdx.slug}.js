@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql, Link } from 'gatsby'
 
 // colours
-import { blueMain, blueSub } from '../../common'
+import { blueMain } from '../../common'
 
 // styles
 import './blogPost.module.css'
@@ -14,6 +14,7 @@ const blogPostStyles = {
   paddingBottom: '96px',
   maxWidth: '68em',
   margin: '0px auto',
+  position: 'relative',
 }
 
 const backButtonStyles = ({ backButtonHover }) => ({
@@ -29,15 +30,17 @@ const backButtonStyles = ({ backButtonHover }) => ({
 
 const moveToTopButtonStyles = ({ moveToTopButtonHover }) => ({
   position: 'fixed',
-  bottom: '48px',
-  right: '48px',
+  top: '48px',
   width: '50px',
   height: '50px',
-  borderRadius: '15px',
-  backgroundColor: moveToTopButtonHover ? '#ffffff' : '#f1f3f5',
-  border: moveToTopButtonHover ? '1px solid lightgrey' : '',
-  color: moveToTopButtonHover ? '#000000' : '#000000',
   cursor: 'pointer',
+  marginLeft: getTopButtonLeftOffset(),
+  transition: 'background-color .2s, color .2s',
+  border: moveToTopButtonHover ? '1px solid lightgrey' : '',
+  borderRadius: '15px',
+  boxShadow: '1px 1px 2px 1px lightgrey',
+  color: moveToTopButtonHover ? '#000000' : '#000000',
+  backgroundColor: moveToTopButtonHover ? '#ffffff' : '#f1f3f5',
 })
 
 const titleStyles = {
@@ -54,32 +57,32 @@ const MarkdownWrapperStyle = {
   fontSize: '1.1rem',
 }
 
+// methods
 const topButtonHandler = () => {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
 }
 
+const getTopButtonLeftOffset = () => {
+  return `${document.querySelector('.blog-post').clientWidth - 160}px`
+}
 
+// Component
 const BlogPost = ({ data }) => {
   const [backButtonHover, setBackButtonHoverHover] = React.useState(false)
   const [moveToTopButtonHover, setMoveToTopButtonHover] = React.useState(false)
 
-  React.useEffect(() => {
-    window.onscroll = function(e) {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        console.log(123)
-      } else {
-        console.log(456)
-      }
-    }
-
-    return () => {
-      console.log(123)
-    }
-  }, [])
-
   return (
-    <div class="blog-post" style={blogPostStyles}>
+    <div className="blog-post" style={blogPostStyles}>
+      <Link to="/"
+        className="back-button"
+        role="button"
+        style={backButtonStyles({backButtonHover})}
+        onPointerOver={() => setBackButtonHoverHover(true)}
+        onPointerOut={() => setBackButtonHoverHover(false)}
+      >
+        &lt; 뒤로가기
+      </Link>
       <button
         style={moveToTopButtonStyles({moveToTopButtonHover})}
         onPointerOver={() => setMoveToTopButtonHover(true)}
@@ -88,13 +91,6 @@ const BlogPost = ({ data }) => {
       >
         Top
       </button>
-      <Link to="/"
-        style={backButtonStyles({backButtonHover})}
-        onPointerOver={() => setBackButtonHoverHover(true)}
-        onPointerOut={() => setBackButtonHoverHover(false)}
-      >
-        &lt; 뒤로가기
-      </Link>
       <h1 style={titleStyles}>{data.mdx.frontmatter.title}</h1>
       <p style={publishedDateStyles}>{data.mdx.frontmatter.publishedDate}</p>
       <div style={MarkdownWrapperStyle}>
