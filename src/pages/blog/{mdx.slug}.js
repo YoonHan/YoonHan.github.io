@@ -3,7 +3,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql, Link } from 'gatsby'
 
 // colours
-import { blueMain } from '../../common'
+import { blueMain, blueSub } from '../../common'
 
 // styles
 import './blogPost.module.css'
@@ -17,7 +17,7 @@ const blogPostStyles = {
 }
 
 const backButtonStyles = ({ backButtonHover }) => ({
-  border: '1px solid lightgrey',
+  border: backButtonHover ? '1px solid lightgrey' : '',
   borderRadius: '6px',
   padding: '8px 16px',
   backgroundColor: backButtonHover ? '#ffffff' : blueMain,
@@ -25,6 +25,19 @@ const backButtonStyles = ({ backButtonHover }) => ({
   fontWeight: 'bold',
   textDecoration: 'none',
   transition: 'background-color .2s, color .2s',
+})
+
+const moveToTopButtonStyles = ({ moveToTopButtonHover }) => ({
+  position: 'fixed',
+  bottom: '48px',
+  right: '48px',
+  width: '50px',
+  height: '50px',
+  borderRadius: '15px',
+  backgroundColor: moveToTopButtonHover ? '#ffffff' : '#f1f3f5',
+  border: moveToTopButtonHover ? '1px solid lightgrey' : '',
+  color: moveToTopButtonHover ? '#000000' : '#000000',
+  cursor: 'pointer',
 })
 
 const titleStyles = {
@@ -41,12 +54,40 @@ const MarkdownWrapperStyle = {
   fontSize: '1.1rem',
 }
 
+const topButtonHandler = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
 
 const BlogPost = ({ data }) => {
   const [backButtonHover, setBackButtonHoverHover] = React.useState(false)
+  const [moveToTopButtonHover, setMoveToTopButtonHover] = React.useState(false)
+
+  React.useEffect(() => {
+    window.onscroll = function(e) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        console.log(123)
+      } else {
+        console.log(456)
+      }
+    }
+
+    return () => {
+      console.log(123)
+    }
+  }, [])
 
   return (
-    <div style={blogPostStyles}>
+    <div class="blog-post" style={blogPostStyles}>
+      <button
+        style={moveToTopButtonStyles({moveToTopButtonHover})}
+        onPointerOver={() => setMoveToTopButtonHover(true)}
+        onPointerOut={() => setMoveToTopButtonHover(false)}
+        onClick={topButtonHandler}
+      >
+        Top
+      </button>
       <Link to="/"
         style={backButtonStyles({backButtonHover})}
         onPointerOver={() => setBackButtonHoverHover(true)}
