@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 import { graphql, Link } from 'gatsby'
 
 // colours
 import { blueMain } from '../../common'
 
-// styles
-import './blogPost.module.css'
+// blog post design system
+import MDXCustomStyles from '../../components/MDXDesignSystem'
 
 
 const blogPostStyles = {
@@ -41,6 +42,7 @@ const moveToTopButtonStyles = ({ moveToTopButtonHover }) => ({
   boxShadow: '1px 1px 2px 1px lightgrey',
   color: moveToTopButtonHover ? '#000000' : '#000000',
   backgroundColor: moveToTopButtonHover ? '#ffffff' : '#f1f3f5',
+  zIndex: '10',
 })
 
 const titleStyles = {
@@ -90,9 +92,13 @@ const BlogPost = ({ data }) => {
       <h1 style={titleStyles}>{data.mdx.frontmatter.title}</h1>
       <p style={publishedDateStyles}>{data.mdx.frontmatter.publishedDate}</p>
       <div style={MarkdownWrapperStyle}>
-        <MDXRenderer>
-          { data.mdx.body }
-        </MDXRenderer>
+        <MDXProvider
+          components={MDXCustomStyles}
+        >
+          <MDXRenderer>
+            { data.mdx.body }
+          </MDXRenderer>
+        </MDXProvider>
       </div>
     </div>
   )
