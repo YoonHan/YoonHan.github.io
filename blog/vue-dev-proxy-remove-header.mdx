@@ -10,10 +10,10 @@ tag: TIL, Vue, Keycloak, HTTP Header
 최근에 REST API 연동 작업을 진행하는 과정에서 JWT 관련 이슈를 만났다.
 
 인증 관리 솔루션인 Keycloak 을 통해 access token 을 발급받아서 그 토큰을 API 요청 헤더에 담아 보내야 하는 상황이었는데
-Keycloak 이 구성해서 내려준 JWT 의 payload 부분을 열어보니 `iss` 필드에 `localhost` 값이 들어가있어서 해당 JWT 토큰으로는 API 인증이 되지 않았다.
-(`401 Unauthorized`)
+Keycloak 이 구성해서 내려준 JWT 의 payload 부분을 열어보니 **`iss`** 필드에 **`localhost`** 값이 들어가있어서 해당 JWT 토큰으로는 API 인증이 되지 않았다.
+(**`401 Unauthorized`**)
 
-Keycloak 에서 `X-Forwarded-*` 헤더를 보고 JWT 의 iss 필드값을 결정하는 것이 문제라고 판단한 뒤 혼자 한참을 알아보다가
+Keycloak 에서 **`X-Forwarded-*`** 헤더를 보고 JWT 의 iss 필드값을 결정하는 것이 문제라고 판단한 뒤 혼자 한참을 알아보다가
 같이 일하는 동료분께서 해결책을 알려주셔서 정리할 겸 글로 남겨 둔다.
 <br />
 
@@ -38,9 +38,9 @@ module.exports = {
 }
 ```
 
-위의 코드는 `vue.config.js` 의 내용이다. 보면,`onProxyReq` 라는 옵션을 사용할 수 있는데
-이 옵션을 통해 dev proxy 서버가 요청을 보내기 전에 처리해야할 작업을 명시할 수 있다.
-우선 `console.dir`로 request 요청이 어떻게 구성되어 있는지 살펴 보았다.
+위의 코드는 **`vue.config.js`** 의 내용이다. 보면, **`onProxyReq`** 라는 옵션을 사용할 수 있는데
+이 옵션을 통해 dev proxy 서버가 요청을 보내기 전에 처리해야할 작업을 명시할 수 있다.<br />
+우선 **`console.dir`**로 request 요청이 어떻게 구성되어 있는지 살펴 보았다.
 <br />
 
 ```javascript
@@ -54,7 +54,8 @@ module.exports = {
 }
 ...
 ```
-요청 헤더에 위와 같은 `x-forwaded-*` 값들이 들어가 있는것을 볼 수 있었다. 이 헤더 값들 때문에 Keycloak에서 JWT의 iss 필드를 localhost 로 세팅해서 내려주고 있던 것이다.
+요청 헤더에 위와 같은 **`x-forwaded-*`** 값들이 들어가 있는것을 볼 수 있었다. <br />
+이 헤더 값들 때문에 Keycloak에서 JWT의 iss 필드를 localhost 로 세팅해서 내려주고 있던 것이다. <br />
 이제 이 header 들을 제거하면 Keycloak 이 정상적인 JWT를 내려줄 것이다.
 <br />
 
