@@ -113,8 +113,8 @@ createApp(App)
   &lt;/body&gt;
 &lt;/html&gt;</code>
         </deckgo-highlight-code><br/><ul><li style="margin:1rem 0">.babelrc.js (babel config 파일)</li></ul><deckgo-highlight-code terminal="carbon" theme="night-owl" line-numbers="true">
-          <code slot="code">// javascript의 확정 스펙이 아닌 proposal 스펙까지 포함한 preset이다.
-module.exports = {
+          <code slot="code">module.exports = {
+// @babel/preset-env 는 javascript의 확정 스펙이 아닌 proposal 스펙까지 포함한 preset이다.
   presets: [&#x27;@babel/preset-env&#x27;],
 }</code>
         </deckgo-highlight-code><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>Webpack 설정하기</h2><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack.config.js</strong> 파일에 다음의 내용을 작성한다.</p><deckgo-highlight-code language="javascript" terminal="carbon" theme="night-owl" line-numbers="true">
