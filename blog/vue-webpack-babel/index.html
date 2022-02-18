@@ -1,0 +1,206 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.3.0"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="icon" href="/favicon-32x32.png?v=cb9f3eea3ec1df24fe5c80019824e77e" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="192x192" href="/src/assets/favicons/android-chrome-192x192.png?v=cb9f3eea3ec1df24fe5c80019824e77e"/><link rel="apple-touch-icon" sizes="512x512" href="/src/assets/favicons/android-chrome-512x512.png?v=cb9f3eea3ec1df24fe5c80019824e77e"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link as="script" rel="preload" href="/webpack-runtime-5c321700920cea0adfb5.js"/><link as="script" rel="preload" href="/framework-5de6c74c93a1b0f393aa.js"/><link as="script" rel="preload" href="/app-a57cfed21ed3d0755fdc.js"/><link as="script" rel="preload" href="/component---src-pages-blog-mdx-slug-js-5b819a73314988c69025.js"/><link as="fetch" rel="preload" href="/page-data/blog/vue-webpack-babel/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="blog-post" style="padding-top:48px;padding-bottom:96px;max-width:68em;margin:0px auto;position:relative"><a class="back-button" role="button" style="border:;border-radius:6px;padding:8px 16px;background-color:#1c7ed6;color:#ffffff;font-weight:bold;text-decoration:none;transition:background-color .2s, color .2s" href="/">&lt; 뒤로가기</a><button style="position:fixed;top:48px;width:50px;height:50px;cursor:pointer;margin-left:920px;transition:background-color .2s, color .2s;border:none;border-radius:15px;box-shadow:1px 1px 2px 1px lightgrey;color:#000000;background-color:#f1f3f5;z-index:10">Top</button><h1 style="margin-bottom:0px">Vue 3 개발환경을 Webpack 5 + Babel 을 이용하여 처음부터 구성해보기</h1><p style="color:grey;margin-top:8px;margin-bottom:30px">February 17, 2022</p><div style="font-size:1.1rem"><blockquote style="color:black;background-color:rgba(0, 0, 0, 0.04);display:block;border-radius:12px;margin:0;padding-block-start:1em;padding-block-end:1em;padding-inline-start:40px;padding-inline-end:40px"><p style="line-height:1.7rem">React 개발 환경은 보통 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Create-React-App</strong>, Vue 개발환경은 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Vue-CLI</strong> 를 통해 자동으로 구성하는 경우가 많다.<br/>
+그런데 누군가 나에게 이러한 툴의 도움 없이 바닥부터 개발환경을 구성하라고 한다면, 자신있게 할 수 있다는 말이 나오지 않을 것 같아서 이번 기회에 공부를 해두려고 한다.<br/>
+Vue 3 개발환경을 webpack 과 babel 을 이용하여 처음부터 구성해보는 과정을 적어보았다.</p></blockquote><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>왜 Webpack 환경을 직접 구성할 줄 알아야 할까?</h2><p style="line-height:1.7rem">여지껏 Vue 로 개발을 진행해오면서 Vue-CLI 의 도움을 받아 프로젝트를 구성했었다.<br/>
+그런데 이러한 방식의 편리함 이면에는 다음과 같은 문제가 있음을 얼마 전 알게 되었다. <br/></p><ul><li style="margin:1rem 0">Vue-CLI 에서 사용하는 Webpack 버전에 종속된다. (예를 들어 Vue-CLI 가 webpack 4 버전 기반이라면 webpack 5 버전의 feature는 사용하지 못한다) <br/></li><li style="margin:1rem 0">Vue-CLI가 Webpack 관련 설정을 알아서 진행해주므로 개발자가 가진 Webpack 자체에 대한 이해도가 떨어질 수 있다. <br/></li></ul><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>Webpack 이란?</h2><p style="line-height:1.7rem">Webpack 은 모듈화된 Javascript 코드를 묶어 하나 이상의 덩어리로 만드는 작업을 해준다. 이 작업을 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">번들링(bundling)</strong> 이라고 한다. <br/>
+Entry 모듈에서부터 시작해 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Dependency Graph</strong>를 그려나가는데, 이 Dependency Graph 란 간단히 말해서 Javascript 모듈 간 의존성을 표현하는 그래프를 말한다. <br/>
+예를 들면, 하나의 Javascript 모듈에서 다른 모듈을 import 하고 있다면 import 하는 모듈이 import 되는 모듈에 의존성을 가진다고 할 수 있다. <br/>
+Webpack의 핵심 구성요소는 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Entry</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Output</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Loaders</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Plugins</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Mode</strong>, 그리고 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Browser Compatibility</strong> 이다.</p><ul><li style="margin:1rem 0"><p style="line-height:1.7rem">Entry</p><p style="line-height:1.7rem">Webpack 이 Dependency Graph를 구성하기 위해 어디서부터 시작해야 할지를 알려주는 진입점이라고 보면 된다. <br/>
+기본값은 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">./src/index.js</strong> 인데, config 파일을 통해 변경이 가능하다.</p></li><li style="margin:1rem 0"><p style="line-height:1.7rem">Output</p><p style="line-height:1.7rem">생성된 덩어리(<strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">번들</strong>)파일을 내보낼 위치 및 파일의 이름을 지정할 수 있다.</p></li><li style="margin:1rem 0"><p style="line-height:1.7rem">Loaders</p><p style="line-height:1.7rem">Webpack은 기본적으로 Javascript 나 JSON만 이해하도록 설계되었다. 그래서 CSS나 image 파일 같은 다른 리소스를 이해하게 만드려면 별도의 기능이 필요하다. <br/>
+이 기능을 해주는 것이 바로 Loader 이다. Loader는 config 파일에서 설정해줄 수 있다.</p></li><li style="margin:1rem 0"><p style="line-height:1.7rem">Plugins</p><p style="line-height:1.7rem">Loader가 Webpack이 이해할 수 없는 유형의 리소스들을 대신 처리해주는 역할을 한다면, <br/>
+Plugin은 추가 기능을 더해주는 역할을 한다고 보면 된다. 번들링된 결과물을 최적화 해주는 기능이라든지 환경변수를 주입해준다든지 하는 확장 기능을 제공한다.</p></li><li style="margin:1rem 0"><p style="line-height:1.7rem">Mode</p><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">Production</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">development</strong>, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">none</strong> 세 값을 지정할 수 있다. 배포환경, 개발환경 별로 세팅을 다르게 가져갈 수 있다.</p></li><li style="margin:1rem 0"><p style="line-height:1.7rem">Browser Compatibility</p><p style="line-height:1.7rem">Webpack은 ES5가 지원되는 모든 브라우저를 지원한다(IE8이하는 지원하지 않음).</p></li></ul><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>Babel 이란?</h2><p style="line-height:1.7rem">Javascript 용 컴파일러이다. 어떤 버전의 Javascript 코드를 특정 버전의 Javascript 코드로 변환해주는 툴이다. <br/>
+구형 브라우저는 최신 Javascript 문법을 지원하지 않으므로 이러한 브라우저를 지원하기 위해 만들어진 툴이다.</p><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>프로젝트 구성하기</h2><p style="line-height:1.7rem"><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:590px">
+      <a class="gatsby-resp-image-link" href="/static/7c42207ef7578008adfc8ec4b02c4239/5aae9/folder-structure.png" style="text-decoration:none" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:89.1891891891892%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAACxElEQVQ4y32Uy27jRhBF9QkBsgkGwdjio9ndfJMSKZEiRUmWZD3GtjyGg1llGQyyyG9kmy8+QdPjSWIrWlywSHafvpdV4MCPY8J4xOPXJU9fD6iuJv9lS7SsSA4d6f2S/HlDctuighAVRu8kg5BgOkbnKQOpfTzlU8xHTBcVepwStgV6kuMbVaNeuszwpMZT7yWURkch0vcZCM8jlhE/HAQfVhYPzYQs1Fx/HGJdWVjXFva1jT20cRz3rGzbIQ19tJQMXFcgHIGVSK5XE6IsJosDfK0JAx+tFWbNJRloGgeoHig8hHnhCH5sCqI04Mtxxm4x5rgqmY5Crq6G3zeeA1q2w6LOiUPNwMBs1yN0bf66K+iyiGaxom1aqnpGO+8YjcZ9rHPOXg8ZWg627b4AHeGhHIffVwVFFFA3c+btnMlkyvwC8N/g13rgCoEQHpYt6JY/URQB2+2Bpmlo23m/eDi0Lkb+L9A8cAVKuhSZRRT6vbPxuKAsJ3ievAh4q4HrmrYLipFASpflcs3pdGK/P7DZbOi6RR/XyLLs79H/Dzow3TUOA0fgux5xkvTOjMMsy/rvlyQJYRgRxwla++9g7yLbrqCyXSodcLPdsb3dc3d/4nC8o2k7bncHlssVnz8/Udez3unZLjvuP8DMEeSeZFokdFXGss6ZlSl1EdNOUnwlGQ7PRzbjUhUJgVYvkQ0wtwVjpdh0Jduu5G5dcVhN+/qmGfeL7W+Qt5ENsMgi/B7oGtuCUDvEgddDPq2n7BYlT/sZdZmymo1Q0us3mvVvoZbt0lU5UaC/RbYdkjghCiNGaUhdZkzHSX8t85i6SAl8vz/4nENzb2DS8xgIIfn48wd+/eNPjs+/sZi3PD49c/x0z25/5Ga9Yb3ecjo98vBwYjZrzjbFuHdem2IKqYL+f6eU6kfD94O+NpLyRWZ0zKBfGpu/AWtRJ2eztEFEAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="프로젝트 구조" title="프로젝트 구조" src="/static/7c42207ef7578008adfc8ec4b02c4239/fcda8/folder-structure.png" srcSet="/static/7c42207ef7578008adfc8ec4b02c4239/12f09/folder-structure.png 148w,/static/7c42207ef7578008adfc8ec4b02c4239/e4a3f/folder-structure.png 295w,/static/7c42207ef7578008adfc8ec4b02c4239/fcda8/folder-structure.png 590w,/static/7c42207ef7578008adfc8ec4b02c4239/5aae9/folder-structure.png 610w" sizes="(max-width: 590px) 100vw, 590px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy" decoding="async"/>
+  </a>
+    </span></p><p style="line-height:1.7rem">폴더에 관한 설명은 다음과 같다.</p><ul><li style="margin:1rem 0"><p style="line-height:1.7rem">src</p><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">App.vue</strong> 및 Webpack 의 Entry 가 될 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">main.js</strong>가 위치함. <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">index.html</strong> 에는 App 컴포넌트가 mount 될 것이다.</p></li></ul><p style="line-height:1.7rem">이외에 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">.babelrc.js</strong> 는 babel 관련 config 파일이고, <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack.config.js</strong> 는 Webpack 관련 config 파일이다.</p><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>관련 라이브러리 설치 및 각 파일 내용 작성</h2><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">npm install -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env css-loader vue-style-loader html-webpack-plugin</strong>
+명령어를 입력해서 라이브러리를 설치한다. <br/>
+꽤 많은 라이브러리에 의존성을 갖는데, 하나하나 살펴보면</p><ul><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">vue</strong> =&gt; Vue 코어</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">vue-loader</strong> =&gt; Vue SFC(Single File Component) loader. <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">.vue</strong> 확장자를 가진 파일을 webpack 이 인식할 수 있도록 해줌.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">vue-template-compiler</strong> =&gt; runtime 에서의 Vue template 컴파일 오버헤드를 줄이기 위해 pre-compile 을 수행. 아주 특별한 경우가 아니라면 vue-loader 와 함께 설치해야 한다.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">vue-style-loader</strong> =&gt; <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">.vue</strong> 파일 안의 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px"><code>&lt;style&gt;</code></strong> 부분에 있는 CSS를 load 함.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack</strong> =&gt; Webpack 코어.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack-cli</strong> =&gt; Webpack cli 도구.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack-dev-server</strong> =&gt; Webpack 개발 서버</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">babel-loader</strong> =&gt; <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">.js</strong>파일에 적용할 babel loader</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px"><code>@babel/core</code></strong> 및 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px"><code>@babel/preset-env</code></strong> =&gt; 코드의 동작 자체에 영향을 미치진 않음. 하지만 babel을 적용하면 보다 넓은 브라우저 지원 범위를 가져갈 수 있음.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">css-loader</strong> =&gt; CSS 파일을 Webpack 이 인식할 수 있도록 해줌.</li><li style="margin:1rem 0"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">html-webpack-plugin</strong> =&gt; <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">index.html</strong> 파일을 가져와서 번들링 완료된 javascript 파일을 head 에 삽입해 준뒤, output 경로에 복사해준다.</li></ul><br/><p style="line-height:1.7rem">이제 각 파일에 내용을 작성한다.</p><ul><li style="margin:1rem 0">src/App.vue</li></ul><deckgo-highlight-code language="javascript" terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">/* src/App.vue */
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;{{message}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: &#x27;Hello Vue!&#x27;,
+    };
+  },
+};
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-size: 18px;
+  font-family: &#x27;Roboto&#x27;, sans-serif;
+  color: tomato;
+}
+&lt;/style&gt;</code>
+        </deckgo-highlight-code><br/><ul><li style="margin:1rem 0">src/main.js. 이 파일이 Webpack 의 entry 가 될 것이다.</li></ul><deckgo-highlight-code language="javascript" terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">/* src/main.js */
+import { createApp } from &#x27;vue&#x27;
+import App from &#x27;./App.vue&#x27;
+
+createApp(App)
+  .mount(&#x27;#app&#x27;)</code>
+        </deckgo-highlight-code><br/><ul><li style="margin:1rem 0">public/index.html. Vue 컴포넌트가 div#app 요소에 렌더링 될 것이다.</li></ul><deckgo-highlight-code language="html" terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">&lt;!-- src/index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Vue.js project from scratch with webpack + babel&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;script src=&quot;../dist/bundle.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+        </deckgo-highlight-code><br/><ul><li style="margin:1rem 0">.babelrc.js (babel config 파일)</li></ul><deckgo-highlight-code terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">// javascript의 확정 스펙이 아닌 proposal 스펙까지 포함한 preset이다.
+module.exports = {
+  presets: [&#x27;@babel/preset-env&#x27;],
+}</code>
+        </deckgo-highlight-code><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>Webpack 설정하기</h2><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack.config.js</strong> 파일에 다음의 내용을 작성한다.</p><deckgo-highlight-code language="javascript" terminal="carbon" theme="night-owl" line-numbers="true">
+          <code slot="code">const HtmlWebpackPlugin = require(&#x27;html-webpack-plugin&#x27;);
+const { VueLoaderPlugin } = require(&#x27;vue-loader&#x27;);
+
+module.exports = {
+  // entry 포인트. 이 파일로부터 시작해 dependency graph 를 구성해 나간다.
+  entry: &#x27;./src/main.js&#x27;,
+  module: {
+    rules: [
+      // javscript transpile 용 babel loader 설정
+      { test: /\.js$/, use: &#x27;babel-loader&#x27; },
+      { test: /\.vue$/, use: &#x27;vue-loader&#x27; },
+      // CSS 관련 loader 설정
+      // vue-style-loader 는 &#x27;.vue&#x27; 파일 안의 &lt;style&gt; 블록 안의 CSS 를 처리하고
+      // css-loader는 모든 &#x27;.css&#x27; 파일을 묶어 하나의 css 파일로 만들어준다.
+      { test: /\.css$/, use: [&#x27;vue-style-loader&#x27;, &#x27;css-loader&#x27;]},
+    ]
+  },
+  // 플러그인 설정
+  // VueLoaderPlugin 을 달아주어야 한다.
+  // 이 플러그인은 위의 module.rules 에 정의한 규칙을 .vue 파일에도 그대로 적용할 수 있게 해준다.
+  // ex) module.rules 에 /\.js$/ 와 매치되는 것이 있다면, 그것이 VueLoaderPlugin을 통해 .vue 파일의 &lt;script&gt; 영역에 적용된다.
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: &#x27;./src/index.html&#x27;,
+    }),
+    new VueLoaderPlugin(),
+  ]
+};</code>
+        </deckgo-highlight-code><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>Webpack 개발 서버 실행하기</h2><p style="line-height:1.7rem">이제 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">package.json</strong> 파일의 <strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">scripts</strong> 부분에 serve script 를 작성한 뒤
+<strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">npm run serve</strong> 명령어로 개발 서버를 실행시켜본다.</p><deckgo-highlight-code terminal="carbon" theme="night-owl" line-numbers="true" highlight-lines="1 4 5">
+          <code slot="code">// package.json
+{
+  (...)
+  &quot;scripts&quot;: {
+    &quot;serve&quot;: &quot;webpack-dev-server --mode development&quot;
+  },
+  (...)
+}</code>
+        </deckgo-highlight-code><br/><p style="line-height:1.7rem">정상적으로 서버가 실행되었다면 다음과 비슷한 내용이 콘솔창에 출력될 것이고,
+<span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:590px">
+      <a class="gatsby-resp-image-link" href="/static/57aa3e002f74850ef625d1e402924f27/6f175/webpack-run.png" style="text-decoration:none" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:24.324324324324326%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA/ElEQVQY03XPwW6CQABFUT6h1kaZYWZQQVRwwAnCgGJSbTcmXbT//zG3sabtpl2cvLe9gbUlWe3J2gOZH0j3PXnuKGYxy2zJZr0mSRKU1hgTo435lzGGwPqasnUUzmLrirLZke8qZJqgTIxSGi0EsRSYmyjCaPVL/X6tNcHoo+fhvWN03TO+OB6vDePXjqe3E5OXZ6bDhbDtEbUnbA5Emy16NkfPF3eL5OfHcUygrz2Ts8MMDtFbpkOFOt5YRGsRriL0NWHjEXWHLB1Rbok2xdfKokIWJSq3pGlKYC8HVseawfeUp47V2bPa5qxmCUZGd0JixHeyxKjoT7fkT+pSkDXcoScmAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="webpack 동작 화면" title="webpack 동작 화면" src="/static/57aa3e002f74850ef625d1e402924f27/fcda8/webpack-run.png" srcSet="/static/57aa3e002f74850ef625d1e402924f27/12f09/webpack-run.png 148w,/static/57aa3e002f74850ef625d1e402924f27/e4a3f/webpack-run.png 295w,/static/57aa3e002f74850ef625d1e402924f27/fcda8/webpack-run.png 590w,/static/57aa3e002f74850ef625d1e402924f27/efc66/webpack-run.png 885w,/static/57aa3e002f74850ef625d1e402924f27/c83ae/webpack-run.png 1180w,/static/57aa3e002f74850ef625d1e402924f27/6f175/webpack-run.png 2036w" sizes="(max-width: 590px) 100vw, 590px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy" decoding="async"/>
+  </a>
+    </span></p><p style="line-height:1.7rem">서버가 띄워진 주소로 접속하면 결과를 확인할 수 있다.
+<span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:590px">
+      <a class="gatsby-resp-image-link" href="/static/32d86f9f60167352c4f5ecd55697af39/31493/render-result.png" style="text-decoration:none" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom:58.10810810810811%;position:relative;bottom:0;left:0;background-image:url(&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABrUlEQVQoz62RTWsTURhG549YUbSgbTFtk8k0k2Y6352EKIlWQWlqioiripriD3IvXUhm5s4kWip+1IWIq4pUFBf+h15zZKYoKKVm0QuHwwuX5z4vV9EWFlHLOplrNYvloMnsXIlLhWLuYkmjWjUoazrzxTJz82rO+ckLR6KUKwYltYJWqaFqi3h+g3OTU0zNzHJxuoDnB5i2R73RpKRqeej0TIGJ02c5NXHmD9mcoSxXqzheHdt0uLt2G8OwuNddZ8mwubPaQddrdG/eoqjqtNor+SZXr93AtDws289x3YAl08UwbBTPXMCyfGzHZaP3KG+z0XuY+/5mD8vxefB4k0rVZrXTpaIbdNbWcdyAVmuFeuMK7fZ1gnqTeuMyikifI2JBkg4J+xFJkhKG4tD9kERkc0yaDoiimHQwJIxiRJISx4JYJESxQIgkR+GEjyKHz5Cvh8j4KfL9G+S3feSHXeSrAfLLJ+TbbeTeRyQgDw6QUh6Lwu42bD2BdzuwE8PXz7C/By8FvOhDsgU/vh8+P/r5/4Zj7TEa/e1jA/+9nPk3R4WOFTgOYzc84V/+BYMt77HOSjFYAAAAAElFTkSuQmCC&#x27;);background-size:cover;display:block"></span>
+  <img class="gatsby-resp-image-image" alt="렌더링 화면" title="렌더링 화면" src="/static/32d86f9f60167352c4f5ecd55697af39/fcda8/render-result.png" srcSet="/static/32d86f9f60167352c4f5ecd55697af39/12f09/render-result.png 148w,/static/32d86f9f60167352c4f5ecd55697af39/e4a3f/render-result.png 295w,/static/32d86f9f60167352c4f5ecd55697af39/fcda8/render-result.png 590w,/static/32d86f9f60167352c4f5ecd55697af39/31493/render-result.png 664w" sizes="(max-width: 590px) 100vw, 590px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0" loading="lazy" decoding="async"/>
+  </a>
+    </span></p><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>HMR(Hot Module Replacement) 기능 추가하기</h2><p style="line-height:1.7rem">지금의 설정만으로 개발을 진행했을 때, 브라우저 새로고침시 기존 상태를 보존하면서 바뀐 부분만 교체(Module Replacement)할 수가 없다. <br/>
+새로고침을 하면 무조건 새롭게 스크립트가 로드되고 모든 화면이 다시 렌더링 된다.(기존 상태를 잃는다). <br/>
+이를 방지하기 위해 HMR 플러그인을 추가해본다.</p><p style="line-height:1.7rem"><strong style="background-color:#e7f5ff;color:#339af0;font-size:1rem;border-radius:6px;padding:2px 4px">webpack.config.js</strong> 파일에 하이라이트된 코드 줄을 추가한다. Webpack은 자체적으로 HMR 플러그인을 제공하고 있다.</p><deckgo-highlight-code language="javascript" terminal="carbon" theme="night-owl" line-numbers="true" highlight-lines="3 28,29">
+          <code slot="code">const HtmlWebpackPlugin = require(&#x27;html-webpack-plugin&#x27;);
+const { VueLoaderPlugin } = require(&#x27;vue-loader&#x27;);
+const webpack = require(&#x27;webpack&#x27;);
+
+module.exports = {
+  // entry 포인트. 이 파일로부터 시작해 dependency graph 를 구성해 나간다.
+  entry: &#x27;./src/main.js&#x27;,
+  module: {
+    rules: [
+      // javscript transpile 용 babel loader 설정
+      { test: /\.js$/, use: &#x27;babel-loader&#x27; },
+      { test: /\.vue$/, use: &#x27;vue-loader&#x27; },
+      // CSS 관련 loader 설정
+      // vue-style-loader 는 &#x27;.vue&#x27; 파일 안의 &lt;style&gt; 블록 안의 CSS 를 처리하고
+      // css-loader는 모든 &#x27;.css&#x27; 파일을 묶어 하나의 css 파일로 만들어준다.
+      { test: /\.css$/, use: [&#x27;vue-style-loader&#x27;, &#x27;css-loader&#x27;]},
+    ]
+  },
+  // 플러그인 설정
+  // VueLoaderPlugin 을 달아주어야 한다.
+  // 이 플러그인은 위의 module.rules 에 정의한 규칙을 .vue 파일에도 그대로 적용할 수 있게 해준다.
+  // ex) module.rules 에 /\.js$/ 와 매치되는 것이 있다면, 그것이 VueLoaderPlugin을 통해 .vue 파일의 &lt;script&gt; 영역에 적용된다.
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: &#x27;./src/index.html&#x27;,
+    }),
+    new VueLoaderPlugin(),
+    // Webpack HMR 플러그인
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};</code>
+        </deckgo-highlight-code><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>결론</h2><p style="line-height:1.7rem">Vue 3 버전에 Webpack 5 를 설정할 때에는 큰 문제 없이 진행이 되었는데, Vue 2 버전과 Webpack 5 의 경우에는 호환성 이슈가 있는 듯 했다. <br/>
+예전에도 webpack, webpack-cli, webpack-dev-server 간 버전을 하나하나 맞추지 않으면 제대로 웹팩이 동작하지 않는 문제 때문에 골치가 아팠던 적이 있는데 혹시나 버전 문제가 있다면 구글링을 해서 세심하게 버전들을 맞춰줘야 한다..</p><h2 style="margin-top:2rem;position:relative;border-bottom:1px solid lightgrey;padding-bottom:.5rem"><div style="width:10px;height:1.5rem;background-color:#1c7ed6;display:inline-block;margin-right:.5rem"></div>References</h2><ul><li style="margin:1rem 0"><a href="https://webpack.js.org/concepts/" style="text-decoration:none">Webpack</a></li><li style="margin:1rem 0"><a href="https://velog.io/@kyusung/Vue-app-sfc-without-vue-cli" style="text-decoration:none">[Vue] 개발환경 만들기 (without vue-cli)</a></li></ul></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/vue-webpack-babel/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-37972374b77f085635d4.js"],"app":["/app-a57cfed21ed3d0755fdc.js"],"component---src-pages-404-js":["/component---src-pages-404-js-b6bdcab2d89fd1f28cfb.js"],"component---src-pages-blog-mdx-slug-js":["/component---src-pages-blog-mdx-slug-js-5b819a73314988c69025.js"],"component---src-pages-index-js":["/component---src-pages-index-js-e9f70bf3e74fbc91b3bd.js"]};/*]]>*/</script><script src="/polyfill-37972374b77f085635d4.js" nomodule=""></script><script src="/component---src-pages-blog-mdx-slug-js-5b819a73314988c69025.js" async=""></script><script src="/app-a57cfed21ed3d0755fdc.js" async=""></script><script src="/framework-5de6c74c93a1b0f393aa.js" async=""></script><script src="/webpack-runtime-5c321700920cea0adfb5.js" async=""></script></body></html>
