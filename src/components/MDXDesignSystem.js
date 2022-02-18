@@ -5,6 +5,8 @@ import * as React from 'react'
 const h2Style = {
   marginTop: '2rem',
   position: 'relative',
+  borderBottom: '1px solid lightgrey',
+  paddingBottom: '.5rem',
 }
 
 const pStyle = {
