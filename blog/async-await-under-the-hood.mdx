@@ -7,7 +7,7 @@ tag: Javascript
 
 > 비동기 코드를 좀더 간결한 문법으로 처리할 수 있게 해주는 syntactic sugar 인 async-await 에 관해 한층 깊게 알아보자.
 
-## # Async-Await ?
+## Async-Await ?
 
 Async-Await 는 비동기 코드를 마치 동기 코드처럼 짤 수 있게 도와주는 문법이다.
 함수 선언시에 **async** 키워드를 붙여주고, 언제끝날지 모르는 코드라인에 **await** 키워드를 붙여주면 된다. 아주 간단하다.
@@ -28,7 +28,7 @@ async function fetchUserData() {
 
 - - -
 
-## # 어떤 방식으로 동작하는 것일까 ?
+## 어떤 방식으로 동작하는 것일까 ?
 결론부터 말하면 **Async-Await** 는 **Promise** 와 **Generator** 의 조합이다. 바로 예시 코드를 살펴보자.
 
 ```javascript

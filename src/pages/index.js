@@ -6,6 +6,7 @@ import '../css/index.css'
 
 // components
 import PostLists from '../components/PostLists'
+import MyFooter from '../components/MyFooter'
 
 // utils
 import { blueMain, fontMainColor } from '../common'
@@ -59,6 +60,7 @@ const IndexPage = ({ data }) => {
       {/* 포스트 영역 */}
       <h1 style={headingStyles}>Posts</h1>
       <PostLists allMdxData={data.allMdx}></PostLists>
+      <MyFooter />
     </main>
   )
 }

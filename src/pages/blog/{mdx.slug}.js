@@ -6,13 +6,15 @@ import { graphql, Link } from 'gatsby'
 // colours
 import { blueMain } from '../../common'
 
+// components
+import MyFooter from '../../components/MyFooter'
+
 // blog post design system
 import MDXCustomStyles from '../../components/MDXDesignSystem'
 
 
 const blogPostStyles = {
   paddingTop: '48px',
-  paddingBottom: '96px',
   maxWidth: '68em',
   margin: '0px auto',
   position: 'relative',
@@ -31,7 +33,7 @@ const backButtonStyles = ({ backButtonHover }) => ({
 
 const moveToTopButtonStyles = ({ moveToTopButtonHover }) => ({
   position: 'fixed',
-  top: '48px',
+  bottom: '48px',
   width: '50px',
   height: '50px',
   cursor: 'pointer',
@@ -100,6 +102,7 @@ const BlogPost = ({ data }) => {
           </MDXRenderer>
         </MDXProvider>
       </div>
+      <MyFooter />
     </div>
   )
 }
