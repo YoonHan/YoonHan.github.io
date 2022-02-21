@@ -39,10 +39,10 @@ const MyFooter = () => {
     <footer style={footerStyle}>
       <section style={linkSectionStyle}>
         <Link to='https://github.com/YoonHan' style={linkStyle}>
-          <img src={GithubLogo} />
+          <img alt="GitHub" src={GithubLogo} />
         </Link>
         <Link to='#' style={linkStyle} onClick={mailTo}>
-          <img alt="awoiejf" src={GmailLogo} />
+          <img alt="Gmail" src={GmailLogo} />
         </Link>
       </section>
       <p style={copyrightStyle}>© 2022 Yoon Han.</p>
