@@ -49,6 +49,22 @@ const labelStyle = {
   marginRight: '.5rem',
 }
 
+const tableStyle = {
+  border: '1px solid lightgrey',
+  borderRadius: '.5rem',
+  borderCollapse: 'collapse',
+}
+
+const thStyle = {
+  border: '1px solid lightgrey',
+  padding: '.4rem .8rem',
+  backgroundColor: '#EEEEEE',
+}
+
+const tdStyle = {
+  border: '1px solid lightgrey',
+  padding: '.4rem .8rem',
+}
 
 // custom tag components
 export function H2(props) {
@@ -90,6 +106,24 @@ export function Strong(props) {
   )
 }
 
+export function Table(props) {
+  return (
+    <table style={tableStyle}>{props.children}</table>
+  )
+}
+
+export function Th(props) {
+  return (
+    <th style={thStyle}>{props.children}</th>
+  )
+}
+
+export function Td(props) {
+  return (
+    <td style={tdStyle}>{props.children}</td>
+  )
+}
+
 // 커스텀 컴포넌트 매핑 객체
 const MDXCustomStyles= {
   h2: H2,
@@ -98,6 +132,9 @@ const MDXCustomStyles= {
   blockquote: Blockquote,
   a: A,
   strong: Strong,
+  table: Table,
+  th: Th,
+  td: Td,
 }
 
 export default MDXCustomStyles
