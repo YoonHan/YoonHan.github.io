@@ -1,8 +1,17 @@
 import * as React from 'react'
+import { blueMain, blueSub } from '../common'
+
 
 
 // styles
 const h2Style = {
+  marginTop: '2rem',
+  position: 'relative',
+  borderBottom: '1px solid lightgrey',
+  paddingBottom: '.5rem',
+}
+
+const h3Style = {
   marginTop: '2rem',
   position: 'relative',
   borderBottom: '1px solid lightgrey',
@@ -41,10 +50,18 @@ const blockquoteStyle = {
   paddingInlineEnd: '40px',
 }
 
-const labelStyle = {
+const h2LabelStyle = {
   width: '10px',
   height: '1.5rem',
-  backgroundColor: '#1c7ed6',
+  backgroundColor: blueMain,
+  display: 'inline-block',
+  marginRight: '.5rem',
+}
+
+const h3LabelStyle = {
+  width: '10px',
+  height: '1.5rem',
+  backgroundColor: 'black',
   display: 'inline-block',
   marginRight: '.5rem',
 }
@@ -70,9 +87,18 @@ const tdStyle = {
 export function H2(props) {
   return (
     <h2 style={h2Style}>
-      <div style={labelStyle}></div>
+      <div style={h2LabelStyle}></div>
       {props.children}
     </h2>
+  )
+}
+
+export function H3(props) {
+  return (
+    <h3 style={h3Style}>
+      <div style={h3LabelStyle}></div>
+      {props.children}
+    </h3>
   )
 }
 
@@ -127,6 +153,7 @@ export function Td(props) {
 // 커스텀 컴포넌트 매핑 객체
 const MDXCustomStyles= {
   h2: H2,
+  h3: H3,
   p: P,
   li: Li,
   blockquote: Blockquote,
