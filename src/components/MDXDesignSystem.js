@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { blueMain, blueSub } from '../common'
+import { blueMain } from '../common'
 
 
 
