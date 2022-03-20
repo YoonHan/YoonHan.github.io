@@ -8,7 +8,7 @@ import GmailLogo from '../assets/images/gmail-32.png'
 const footerStyle = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '50px 0',
+  padding: '120px 0 50px 0',
 }
 
 const linkSectionStyle = {
